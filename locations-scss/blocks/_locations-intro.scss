@@ -1,0 +1,184 @@
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  background-color: $banner;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(90deg,
+      rgba(22, 32, 48, 0.85) 0%,
+      rgba(28, 41, 60, 0.72) 50%,
+      rgba(20, 29, 44, 0.82) 100%),
+    url(./../img/intro-bg-2.png);
+}
+
+.banner__inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.banner__title {
+  font-size: 52px;
+  color: #fff;
+}
+
+// three round shapes on the right: two with a border and one filled
+.banner__inner::before,
+.banner__inner::after {
+  content: '';
+  position: absolute;
+  top: 70px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.banner__inner::before {
+  left: calc(100% - 53px);
+}
+
+.banner__inner::after {
+  left: calc(100% + 33px);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 70px;
+  left: calc(100% - 32px);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+@media (max-width: 992px) {
+  .banner {
+    height: 160px;
+  }
+
+  .banner__inner::before,
+  .banner__inner::after,
+  .banner::before {
+    top: 50px;
+  }
+
+  .banner__inner::before {
+    left: calc(100% - 185px);
+  }
+
+  .banner__inner::after {
+    left: calc(100% - 99px);
+  }
+
+  .banner::before {
+    left: calc(100% - 44px);
+  }
+}
+
+@media (max-width: 600px) {
+  .banner {
+    height: 156px;
+  }
+
+  .banner__inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .banner__title {
+    font-size: 36px;
+  }
+
+  .banner__inner::before,
+  .banner__inner::after,
+  .banner::before {
+    display: none;
+  }
+}
+
+.map {
+  padding: 80px 0 100px;
+}
+
+.map__img {
+  width: 100%;
+  height: auto;
+}
+
+.city-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.city-cta h2 {
+  width: 330px;
+  line-height: 1;
+}
+
+.city-cta p {
+  flex: 1;
+  max-width: 320px;
+  font-size: 15px;
+}
+
+// list of cities is only for mobile
+.city-list {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .map {
+    padding: 50px 0 60px;
+  }
+
+  .city-cta {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 40px;
+    padding-bottom: 90px;
+    text-align: center;
+  }
+
+  .city-cta h2 {
+    width: auto;
+  }
+
+  .city-cta p {
+    flex: none;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .map {
+    padding: 30px 0 50px;
+  }
+
+  .city-list {
+    display: block;
+    margin-top: 30px;
+  }
+
+  .city-list li {
+    margin-bottom: 16px;
+    padding: 16px;
+    background-color: $tint;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .city-cta {
+    padding-bottom: 60px;
+  }
+}
